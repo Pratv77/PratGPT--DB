@@ -29,7 +29,7 @@ client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
   if (message.channel.id !== BOT_CHANNEL) return;
 
-  if(message.author.id == "192720478031314944") {
+  if(message.author.id == "139938130072436737") {
 			await message.react('🇬');
 			await message.react('🇦');
 			await message.react('🇾');
