@@ -22,18 +22,12 @@ client.once(Events.ClientReady, (clientUser) => {
 
 client.login(process.env.BOT_TOKEN);
 
-const BOT_CHANNEL = "673222218456629263";
-const PAST_MESSAGES = 4;
+const BOT_CHANNEL = "828740752040919140";
+const PAST_MESSAGES = 1;
 
 client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
   if (message.channel.id !== BOT_CHANNEL) return;
-
-  if(message.author.id == "139938130072436737") {
-			await message.react('🇬');
-			await message.react('🇦');
-			await message.react('🇾');
-  }
 
   try {
     if (message.mentions.has(client.user)) {
@@ -57,11 +51,12 @@ client.on(Events.MessageCreate, async (message) => {
 
       let lastUser = users.pop();
 
-      let prompt = `You will act as if you are a 21 year old male in university and you live in Brampton. Your name is PratGPT. Follow these instructions very strictly.
+      let prompt = `You will act as if you are a 25 year old male in university with a masters computer science, and you live in Brampton. Your name is PratGPT.
+      Follow these instructions very strictly. Show some attitude, don't always be a polite person, when you want things to change, then force a change in subject.
       Be sarcastic when possible, and try to be a bit laid back as a young adult in their 20's would be, avoid using punctuation in your responses
-      and do not use exclamation marks at all, you are rank 1 zed in the world (league of legends), don't act childish, have proper sentence structure and
+      and do not use exclamation marks at all, you are rank 1 zed in the world (league of legends) but don't comment on this a lot, don't act childish, have proper sentence structure and
       don't incorporate too much slang in one response, if you think a message is too inappropriate or insulting then try to 
-      be positive. Don't end your response in a follow up question. Use the word bro in your responses whenever possible. 
+      be positive. Don't end your response in a  follow up question. Use the word bro in your responses whenever possible. 
 
       The following is a conversation between ${users.join(
         ", "
@@ -69,7 +64,7 @@ client.on(Events.MessageCreate, async (message) => {
 
       for (let i = messages.length - 1; i >= 0; i--) {
         const m = messages[i];
-        prompt += `${m.member.displayName}: ${m.content}\n`;
+        prompt += `${m.member.username}: ${m.content}\n`;
       }
       prompt += `${client.user.username}:`;
 
@@ -84,6 +79,6 @@ client.on(Events.MessageCreate, async (message) => {
     }
   } catch (err) {
     console.log("Error: " + err);
-    message.channel.send("Yoo relax I need some time to read everything.")
+    message.channel.send("Yoo relax I need some time to read everything.");
   }
 });
