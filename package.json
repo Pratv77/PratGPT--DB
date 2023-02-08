@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Pratv77/PratGPT---DB#readme",
   "dependencies": {
+    "bottleneck": "^2.19.5",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "openai": "^3.1.0"
