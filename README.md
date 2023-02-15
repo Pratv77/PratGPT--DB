@@ -18,9 +18,9 @@ PratGPT is a discord bot built using discord.js and powered by OpenAI's API. Wit
 
 ## Usage
 1. Clone this repository to your computer.
-2. Run `npm install` in the project directory to install the necessary packages.
-3. Create a `.env` file in the project directory and add your OpenAI API key to it as `OPENAI_KEY=<your-api-key>`.
-4. Run `npm start` to start the bot.
+2. Run `npm i discord.js dotenv openai` in the project directory to install the necessary packages.
+3. Create a `.env` file in the project directory and add your OpenAI API key to it as `OPENAI_KEY=<your-api-key>` and DISCORD_TOKEN=<your-discord-bot-token>.
+4. Run `node index.js` to start the bot.
 5. Invite the bot to your Discord server and start chatting with PratGPT!
 
 ## Contributing
