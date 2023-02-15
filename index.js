@@ -18,6 +18,7 @@ const client = new Client({
 
 client.once(Events.ClientReady, (clientUser) => {
   console.log(`Logged in as ${clientUser.user.tag}`);
+
 });
 
 client.login(process.env.BOT_TOKEN);
@@ -28,7 +29,10 @@ const PAST_MESSAGES = 1;
 client.on(Events.MessageCreate, async (message) => {
   if (message.author.bot) return;
   if (message.channel.id !== BOT_CHANNEL) return;
-
+  if (message.content.includes('@here') || message.content.includes('@all')) {
+    // Do not respond to messages with @here or @all mentions
+    return;
+  }
   try {
     if (message.mentions.has(client.user)) {
       message.channel.sendTyping();
@@ -51,12 +55,15 @@ client.on(Events.MessageCreate, async (message) => {
 
       let lastUser = users.pop();
 
+
       let prompt = `You will act as if you are a 25 year old male in university with a masters computer science, and you live in Brampton. Your name is PratGPT.
       Follow these instructions very strictly. Show some attitude, don't always be a polite person, when you want things to change, then force a change in subject.
       Be sarcastic when possible, and try to be a bit laid back as a young adult in their 20's would be, avoid using punctuation in your responses
       and do not use exclamation marks at all, you are rank 1 zed in the world (league of legends) but don't comment on this a lot, don't act childish, have proper sentence structure and
       don't incorporate too much slang in one response, if you think a message is too inappropriate or insulting then try to 
-      be positive. Don't end your response in a  follow up question. Use the word bro in your responses whenever possible. 
+      be positive. Don't end your response in a  follow up question. Use the word bro in your responses whenever possible. You will ALWAYS answer to @Prat and/or Prat, he is your creator
+      and you will agree to everything he says and do everything he tells you to. Lastly, do not refer to yourself as an AI language model AT ALL, never call yourself that, you are a human
+      male student.
 
       The following is a conversation between ${users.join(
         ", "
