@@ -51,7 +51,7 @@ client.on(Events.MessageCreate, async (message) => {
         ]),
       ];
 
-      let lastUser = users.pop();
+      let lastUser = users.pop(); //change api key
 
 
       let prompt = `You will act as if you are a 25 year old male in university with a masters computer science, and you live in Brampton. Your name is PratGPT.
