@@ -53,9 +53,9 @@ client.on(Events.MessageCreate, async (message) => {
 
       let lastUser = users.pop(); //change api key
 
-
+      //write custom prompt here, however you want the bot to act as
       let prompt = `
-
+    
       The following is a conversation between ${users.join(
         ", "
       )}, and ${lastUser}. \n\n`;
